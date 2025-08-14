@@ -3,6 +3,10 @@
 This project shows how to host a static website using AWS services.  
 The idea is to store the website in **Amazon S3** and deliver it through **Amazon CloudFront** for better speed and security.
 
+## Architecture Overview
+
+![AWS Static Website Diagram](diagram/aws-static-website.png)
+
 ## Why this pattern?
 
 - It is a common way to publish websites without running servers.
