@@ -1,9 +1,9 @@
 # S3 Bucket for the website (private, only accessible via CloudFront OAC)
 resource "aws_s3_bucket" "website" {
-  bucket = "${var.project_name}-bucket"
+  bucket = "${var.project_name}-bucket-2348"
 
   tags = {
-    Name        = "${var.project_name}-bucket"
+    Name        = "${var.project_name}-bucket-2348"
     Environment = "dev"
   }
 }
