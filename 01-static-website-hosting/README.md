@@ -32,3 +32,12 @@ The site is stored in **Amazon S3** and delivered with **Amazon CloudFront** for
 - Terraform code for S3, CloudFront, ACM, and Route 53
 - Example static website with logo
 - Deployment scripts
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed website:
+
+![Demo Screenshot 1](site/assets/demo1.png)  
+![Demo Screenshot 2](site/assets/demo2.png)
