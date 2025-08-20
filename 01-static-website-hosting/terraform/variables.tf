@@ -7,7 +7,6 @@ variable "aws_region" {
 variable "project_name" {
   description = "Name prefix for resources"
   type        = string
-  default     = "static-site"
 }
 
 variable "domain_name" {

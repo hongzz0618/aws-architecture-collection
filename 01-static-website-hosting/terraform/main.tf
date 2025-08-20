@@ -1,9 +1,9 @@
 # S3 Bucket for the website (private, only accessible via CloudFront OAC)
 resource "aws_s3_bucket" "website" {
-  bucket = "${var.project_name}-bucket"
+  bucket = "${var.project_name}-bucket-1013"
 
   tags = {
-    Name        = "${var.project_name}-bucket"
+    Name        = "${var.project_name}-bucket-1013"
     Environment = "dev"
   }
 }
@@ -73,6 +73,8 @@ resource "aws_cloudfront_distribution" "cdn" {
   comment             = "${var.project_name} distribution"
   default_root_object = "index.html"
 
+  aliases = [var.domain_name, "www.${var.domain_name}"]
+
   origin {
     domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
     origin_id                = "s3-${aws_s3_bucket.website.id}"
@@ -115,7 +117,7 @@ resource "aws_cloudfront_distribution" "cdn" {
 }
 
 # Route 53 Record for the domain
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "root" {
   zone_id = var.hosted_zone_id
   name    = "www.${var.domain_name}"
   type    = "A"
