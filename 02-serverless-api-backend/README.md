@@ -32,3 +32,13 @@ It uses **API Gateway**, **Lambda**, and **DynamoDB** to create a backend withou
 - Terraform code for API Gateway, Lambda, and DynamoDB
 - Example Lambda function (Node.js)
 - Deployment scripts
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed backend:
+
+![Demo Screenshot 1](images/demo1.png)  
+![Demo Screenshot 2](images/demo2.png)
+![Demo Screenshot 3](images/demo3.png)
