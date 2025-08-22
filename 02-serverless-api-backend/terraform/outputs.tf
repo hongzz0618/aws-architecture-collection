@@ -1,3 +1,3 @@
-output "api_endpoint" {
-  value = aws_apigatewayv2_api.http_api.api_endpoint
+output "api_url" {
+  value = "${aws_api_gateway_deployment.deployment.invoke_url}${aws_api_gateway_stage.dev.stage_name}"
 }

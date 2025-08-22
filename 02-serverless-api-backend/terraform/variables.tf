@@ -1,9 +1,9 @@
-variable "project_name" {
-  description = "A unique name for the project (used for resource naming)"
+variable "region" {
+  description = "AWS region"
   type        = string
 }
 
-variable "region" {
-  description = "AWS region where resources will be deployed"
+variable "project_name" {
+  description = "Project name prefix"
   type        = string
 }
