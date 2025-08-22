@@ -39,3 +39,5 @@ desktop.ini
 
 # Editor specific files
 *~
+
+node_modules/
