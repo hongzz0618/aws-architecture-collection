@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "createItem.js",
+  "type": "module",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.873.0",
     "bowser": "^2.12.0",
