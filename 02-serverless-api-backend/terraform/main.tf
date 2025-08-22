@@ -162,9 +162,18 @@ resource "aws_api_gateway_deployment" "deployment" {
     redeployment = sha1(jsonencode([
       aws_api_gateway_method.post_items.id,
       aws_api_gateway_method.get_item.id,
-      aws_api_gateway_method.delete_item.id
+      aws_api_gateway_method.delete_item.id,
+      aws_api_gateway_integration.post_items.id,
+      aws_api_gateway_integration.get_item.id,
+      aws_api_gateway_integration.delete_item.id
     ]))
   }
+
+  depends_on = [
+    aws_api_gateway_integration.post_items,
+    aws_api_gateway_integration.get_item,
+    aws_api_gateway_integration.delete_item
+  ]
 
   lifecycle {
     create_before_destroy = true
