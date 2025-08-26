@@ -13,7 +13,3 @@ resource "aws_glue_crawler" "this" {
 
   schedule = "cron(0 * * * ? *)" # every hour
 }
-
-output "database_name" {
-  value = aws_glue_catalog_database.this.name
-}

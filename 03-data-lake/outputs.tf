@@ -5,7 +5,3 @@ output "s3_bucket" {
 output "glue_database" {
   value = module.glue.database_name
 }
-
-output "athena_query_results" {
-  value = module.athena.output_location
-}

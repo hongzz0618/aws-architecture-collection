@@ -11,7 +11,3 @@ resource "aws_athena_workgroup" "this" {
     }
   }
 }
-
-output "output_location" {
-  value = "s3://${aws_s3_bucket.results.bucket}/"
-}

@@ -44,7 +44,3 @@ resource "aws_iam_role_policy" "glue_policy" {
     ]
   })
 }
-
-output "glue_role_arn" {
-  value = aws_iam_role.glue_role.arn
-}
