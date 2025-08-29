@@ -34,3 +34,14 @@ It uses **Amazon S3**, **Amazon EventBridge**, **AWS Lambda**, **Amazon SNS**, a
 - Terraform code for S3, EventBridge, Lambda, SNS, and SQS
 - Example Node.js Lambda for file processing
 - Deployment scripts
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed event driven:
+
+![Demo Screenshot 0](images/demo0.png)  
+![Demo Screenshot 1](images/demo1.png)
+![Demo Screenshot 2](images/demo2.png)
+![Demo Screenshot 3](images/demo3.jpg)
