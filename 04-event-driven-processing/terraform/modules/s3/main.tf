@@ -56,6 +56,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "lifecycle" {
     id     = "transition-noncurrent"
     status = "Enabled"
 
+    filter {
+      prefix = ""
+    }
+
     noncurrent_version_transition {
       noncurrent_days = 30
       storage_class   = "STANDARD_IA"
