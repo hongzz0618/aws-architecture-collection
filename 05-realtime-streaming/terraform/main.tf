@@ -17,19 +17,19 @@ provider "aws" {
 }
 
 module "kinesis" {
-  source      = "../modules/kinesis"
+  source      = "./modules/kinesis"
   stream_name = "my-stream"
   shard_count = 1
 }
 
 module "dynamodb" {
-  source     = "../modules/dynamodb"
+  source     = "./modules/dynamodb"
   table_name = "my-realtime-table"
   hash_key   = "userId"
 }
 
 module "lambda" {
-  source         = "../modules/lambda"
+  source         = "./modules/lambda"
   function_name  = "kinesisProcessor"
   handler        = "index.handler"
   runtime        = "nodejs18.x"

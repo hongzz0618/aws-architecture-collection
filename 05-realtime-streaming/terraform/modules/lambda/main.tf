@@ -37,13 +37,25 @@ resource "aws_iam_role_policy" "lambda_policy" {
     Version = "2012-10-17"
     Statement = [
       {
+        Effect = "Allow"
+        Action = [
+          "kinesis:GetRecords",
+          "kinesis:GetShardIterator",
+          "kinesis:DescribeStream",
+          "kinesis:DescribeStreamSummary",
+          "kinesis:ListShards",
+          "kinesis:ListStreams"
+        ]
+        Resource = "*"
+      },
+      {
         Effect   = "Allow"
         Action   = ["dynamodb:PutItem"]
         Resource = "*"
       },
       {
         Effect   = "Allow"
-        Action   = ["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents"]
+        Action   = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
         Resource = "*"
       }
     ]

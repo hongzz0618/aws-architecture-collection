@@ -16,7 +16,7 @@ Each architecture will include:
 2. [**Serverless API Backend**](./02-serverless-api-backend) – API Gateway, Lambda, DynamoDB
 3. [**Data Lake**](./03-data-lake) – S3, Glue, Athena, QuickSight
 4. [**Event-Driven Processing**](./04-event-driven-processing) – S3/EventBridge, Lambda, SNS/SQS
-5. **Real-Time Data Streaming** – Kinesis Data Streams, Lambda, DynamoDB
+5. [**Real-Time Data Streaming**](./05-realtime-streaming) – Kinesis Data Streams, Lambda, DynamoDB
 6. **Containerized Web App** – ECS Fargate, ALB, EFS
 7. **CI/CD Pipeline** – CodePipeline, CodeBuild, CodeDeploy
 8. **Backup & Disaster Recovery** – S3, Glacier, AWS Backup
