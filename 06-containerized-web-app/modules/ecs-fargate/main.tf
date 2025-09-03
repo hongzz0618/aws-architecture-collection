@@ -36,6 +36,7 @@ resource "aws_ecs_task_definition" "this" {
     name = "efs-volume"
     efs_volume_configuration {
       file_system_id     = var.efs_id
+      transit_encryption = "ENABLED"
       authorization_config {
         access_point_id = var.efs_access_point_id
       }
@@ -84,7 +85,7 @@ resource "aws_security_group" "ecs" {
 
 # IAM roles
 resource "aws_iam_role" "execution" {
-  name               = "ecsTaskExecutionRole"
+  name               = "ecsTaskExecutionRole-905"
   assume_role_policy = data.aws_iam_policy_document.ecs_assume.json
 }
 
