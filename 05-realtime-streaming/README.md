@@ -35,3 +35,12 @@ It uses **Amazon Kinesis Data Streams**, **AWS Lambda**, and **Amazon DynamoDB**
   - Lambda with IAM permissions
   - DynamoDB table
 - Node.js Lambda function
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed real-time data streaming:
+
+![Demo Screenshot 0](images/demo1.png)  
+![Demo Screenshot 1](images/demo2.png)
