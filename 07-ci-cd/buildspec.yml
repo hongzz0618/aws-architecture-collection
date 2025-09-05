@@ -2,23 +2,27 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18
     commands:
-      - echo "Installing dependencies"
+      - echo "Installing app dependencies"
       - cd app
       - npm ci
   build:
     commands:
-      - echo "Running tests (if any)"
+      - echo "Running tests (if any)..."
       - cd ../app
-      # run tests here (optional)
   post_build:
     commands:
       - echo "Packaging artifact"
-      - cd ../
       - mkdir -p artifact
       - cp -r app artifact/
-      - cp appspec.yml artifact/
+      - cp ../appspec.yml artifact/
+      - cp ../scripts/start_server.sh artifact/
+      - cp ../scripts/stop_server.sh artifact/
+      - cd artifact
+      - zip -r ../artifact.zip .
 artifacts:
   files:
-    - artifact/**/*
-  discard-paths: no
+    - artifact.zip
+  discard-paths: yes

@@ -4,11 +4,11 @@ files:
   - source: /
     destination: /home/ec2-user/app
 hooks:
-  ApplicationStart:
-    - location: scripts/start_server.sh
+  ApplicationStop:
+    - location: stop_server.sh
       timeout: 300
       runas: ec2-user
-  ApplicationStop:
-    - location: scripts/stop_server.sh
+  ApplicationStart:
+    - location: start_server.sh
       timeout: 300
       runas: ec2-user

@@ -1,0 +1,10 @@
+variable "pipeline_name" { type = string }
+variable "github_owner" { type = string }
+variable "github_repo" { type = string }
+variable "github_branch" { type = string }
+variable "oauth_token_secret" { type = string }
+variable "artifact_bucket" { type = string }
+variable "codebuild_project" { type = string }
+variable "codedeploy_app_name" { type = string }
+variable "codedeploy_group" { type = string }
+variable "service_role_arn" { type = string }
