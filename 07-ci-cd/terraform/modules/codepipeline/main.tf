@@ -1,14 +1,3 @@
-variable "pipeline_name" { type = string }
-variable "github_owner" { type = string }
-variable "github_repo" { type = string }
-variable "github_branch" { type = string }
-variable "oauth_token_secret" { type = string } # ARN
-variable "artifact_bucket" { type = string }
-variable "codebuild_project" { type = string }
-variable "codedeploy_app_name" { type = string }
-variable "codedeploy_group" { type = string }
-variable "service_role_arn" { type = string }
-
 data "aws_secretsmanager_secret_version" "github_token" {
   secret_id = var.oauth_token_secret
 }

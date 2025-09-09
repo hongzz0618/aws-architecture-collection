@@ -1,7 +1,3 @@
-variable "project_name" { type = string }
-variable "service_role_arn" { type = string }
-variable "artifact_bucket" { type = string }
-
 resource "aws_codebuild_project" "this" {
   name         = var.project_name
   service_role = var.service_role_arn

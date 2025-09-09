@@ -1,8 +1,3 @@
-variable "application_name" { type = string }
-variable "deployment_group" { type = string }
-variable "service_role_arn" { type = string }
-variable "asg_name" { type = string }
-
 resource "aws_codedeploy_app" "app" {
   name = var.application_name
   compute_platform = "Server"

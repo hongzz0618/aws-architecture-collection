@@ -1,5 +1,3 @@
-variable "artifact_bucket_arn" { type = string }
-
 # CodeBuild role
 resource "aws_iam_role" "codebuild" {
   name = "example-codebuild-role"
