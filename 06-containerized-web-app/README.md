@@ -32,3 +32,14 @@ It uses **ECS Fargate**, **Application Load Balancer (ALB)**, and **EFS** for pe
 - EFS with access point mounted into containers.
 - Bootstrap container that seeds a default `index.html` into EFS.
 - Architecture diagram and deployment scripts.
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed containerized web app:
+
+![Demo Screenshot 1](images/demo1.png)  
+![Demo Screenshot 2](images/demo2.png)
+![Demo Screenshot 3](images/demo3.png)  
+![Demo Screenshot 4](images/demo4.png)
