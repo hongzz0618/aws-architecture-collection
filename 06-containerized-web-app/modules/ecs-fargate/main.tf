@@ -16,19 +16,28 @@ resource "aws_ecs_task_definition" "this" {
       name      = "app"
       image     = var.container_image
       essential = true
-      portMappings = [
-        {
-          containerPort = var.container_port
-          hostPort      = var.container_port
-          protocol      = "tcp"
-        }
+      portMappings = [{
+        containerPort = var.container_port
+        hostPort      = var.container_port
+        protocol      = "tcp"
+      }]
+      mountPoints = [{
+        sourceVolume  = "efs-volume"
+        containerPath = "/usr/share/nginx/html"
+      }]
+    },
+    {
+      name      = "bootstrap"
+      image     = "busybox"
+      essential = false
+      command = [
+        "sh", "-c",
+        "test -f /usr/share/nginx/html/index.html || echo '<h1>It works (EFS)!</h1>' > /usr/share/nginx/html/index.html"
       ]
-      mountPoints = [
-        {
-          sourceVolume  = "efs-volume"
-          containerPath = "/usr/share/nginx/html"
-        }
-      ]
+      mountPoints = [{
+        sourceVolume  = "efs-volume"
+        containerPath = "/usr/share/nginx/html"
+      }]
     }
   ])
 
@@ -69,9 +78,9 @@ resource "aws_security_group" "ecs" {
   vpc_id = var.vpc_id
 
   ingress {
-    from_port   = var.container_port
-    to_port     = var.container_port
-    protocol    = "tcp"
+    from_port       = var.container_port
+    to_port         = var.container_port
+    protocol        = "tcp"
     security_groups = [var.alb_security_group_id]
   }
 
@@ -147,5 +156,5 @@ variable "efs_access_point_id" {
 }
 
 variable "alb_security_group_id" {
- type = string
+  type = string
 }
