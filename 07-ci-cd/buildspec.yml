@@ -5,24 +5,12 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing app dependencies"
-      - cd app
-      - npm ci
+      - echo "Installing dependencies"
+      - npm install
   build:
     commands:
-      - echo "Running tests (if any)..."
-      - cd ../app
-  post_build:
-    commands:
-      - echo "Packaging artifact"
-      - mkdir -p artifact
-      - cp -r app artifact/
-      - cp ../appspec.yml artifact/
-      - cp ../scripts/start_server.sh artifact/
-      - cp ../scripts/stop_server.sh artifact/
-      - cd artifact
-      - zip -r ../artifact.zip .
+      - echo "Running build"
+      - npm run build || echo "No build script, skipping"
 artifacts:
   files:
-    - artifact.zip
-  discard-paths: yes
+    - "**/*"

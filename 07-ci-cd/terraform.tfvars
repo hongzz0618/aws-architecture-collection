@@ -1,0 +1,6 @@
+region            = "us-east-1"
+project_name      = "cicd-simplified"
+github_owner      = "your-github-user"
+github_repo       = "your-repo"
+github_branch     = "main"
+github_oauth_token = "ghp_xxxxxxxx"
