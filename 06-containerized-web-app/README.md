@@ -1,38 +1,45 @@
-# 06 - Containerized Web App with ECS Fargate, ALB, and EFS
+# 06 — Containerized Web App
 
-## 📌 Overview
-
-This pattern demonstrates how to deploy a containerized web application on **Amazon ECS Fargate** with:
-
-- **Application Load Balancer (ALB)** for traffic distribution.
-- **Amazon EFS** for persistent shared storage across tasks.
-- **VPC** with public and private subnets for secure networking.
-
-It represents a common architecture used for **modernizing monolithic applications** or **hosting stateful containerized workloads**.
+This example shows how to run a **containerized web application** on AWS.  
+It uses **ECS Fargate**, **Application Load Balancer (ALB)**, and **EFS** for persistent storage.
 
 ---
 
-## 🏗️ Architecture Diagram
+## Architecture
 
-![Architecture Diagram](./diagram.png)
+![Containerized Web App Diagram](diagram/containerized-web-app.png)
 
----
+**Main services:**
 
-## 🚀 Use Case
-
-- Hosting a **containerized web application** that requires:
-  - Automatic scaling.
-  - Secure access via HTTPS.
-  - Shared file storage (e.g., uploaded files, logs).
-- Example: Content management systems (WordPress, Drupal), legacy apps migrated to AWS.
+- **ECS Fargate** → runs containers without managing servers.
+- **ALB (Application Load Balancer)** → routes HTTP traffic to ECS tasks.
+- **EFS (Elastic File System)** → shared, persistent storage across tasks.
 
 ---
 
-## 🔧 AWS Services Used
+## Why this pattern?
 
-- **VPC** – Public and private subnets with NAT Gateway.
-- **ECS Fargate** – Serverless containers.
-- **Application Load Balancer (ALB)** – Distributes traffic.
-- **Amazon EFS** – Shared file system for stateful workloads.
-- **CloudWatch Logs** – Application and infrastructure logging.
-- **IAM Roles** – Task execution and service roles.
+- Fully managed containers with no servers to patch.
+- Horizontal scaling with ALB + ECS service.
+- Persistent shared storage with EFS (files survive even if tasks restart).
+- Good fit for web apps, CMS, or any app that needs shared state.
+
+---
+
+## What’s inside
+
+- Terraform code for ECS cluster, task definition, service, and ALB.
+- EFS with access point mounted into containers.
+- Bootstrap container that seeds a default `index.html` into EFS.
+- Architecture diagram and deployment scripts.
+
+---
+
+## Demo Screenshots
+
+Here are a couple of screenshots showing the deployed containerized web app:
+
+![Demo Screenshot 1](images/demo1.png)  
+![Demo Screenshot 2](images/demo2.png)
+![Demo Screenshot 3](images/demo3.png)  
+![Demo Screenshot 4](images/demo4.png)

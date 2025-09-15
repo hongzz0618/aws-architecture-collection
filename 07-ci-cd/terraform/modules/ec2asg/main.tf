@@ -1,7 +1,3 @@
-variable "instance_type" { type = string }
-variable "desired_capacity" { type = number }
-variable "iam_instance_profile" { type = string }
-
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners = ["amazon"]
