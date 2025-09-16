@@ -17,6 +17,7 @@ resource "aws_codebuild_project" "this" {
 
   source {
     type = "CODEPIPELINE"
+    buildspec = "07-ci-cd/buildspec.yml"
   }
 }
 
