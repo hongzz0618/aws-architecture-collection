@@ -2,15 +2,20 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18
     commands:
-      - echo "Installing dependencies"
+      - echo "🔧 Installing dependencies"
+      - cd src
       - npm install
   build:
     commands:
-      - echo "Running build"
-      - npm run build || echo "No build script, skipping"
+      - echo "🏗️ Building project"
+      - npm run build
+      - echo "🧪 Running tests"
+      - npm test
+  post_build:
+    commands:
+      - echo "✅ Build & tests completed successfully"
+
 artifacts:
   files:
-    - "**/*"
+    - src/**
