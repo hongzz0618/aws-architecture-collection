@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo "🔧 Installing dependencies"
-      - cd src
+      - cd 07-ci-cd/src
       - npm install
   build:
     commands:
@@ -18,4 +18,4 @@ phases:
 
 artifacts:
   files:
-    - src/**
+    - 07-ci-cd/src/**
