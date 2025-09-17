@@ -30,3 +30,7 @@ resource "aws_autoscaling_group" "this" {
     propagate_at_launch = true
   }
 }
+
+output "ec2_asg_name" {
+  value = aws_launch_template.this.name_prefix
+}
