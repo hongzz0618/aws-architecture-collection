@@ -32,5 +32,5 @@ resource "aws_autoscaling_group" "this" {
 }
 
 output "ec2_asg_name" {
-  value = aws_launch_template.this.name_prefix
+  value = aws_autoscaling_group.this.name
 }

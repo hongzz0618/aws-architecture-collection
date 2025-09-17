@@ -7,6 +7,22 @@ variable "project_name" {
   default     = "simple-cicd-demo"
 }
 
+variable "ami_id" {
+  description = "AMI ID for instances"
+  type        = string
+}
+
+variable "instance_type" {
+  description = "Instance type"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs for ASG"
+  type        = list(string)
+}
+
 variable "github_owner" {
   description = "GitHub username or org"
   type        = string

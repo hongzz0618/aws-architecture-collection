@@ -89,6 +89,74 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
     ]
   })
 }
+# CodeDeploy IAM Role
+resource "aws_iam_role" "codedeploy" {
+  name = "${var.project_name}-codedeploy-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          Service = "codedeploy.amazonaws.com"
+        },
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+# Inline Policy for CodeDeploy
+resource "aws_iam_role_policy" "codedeploy_policy" {
+  name = "${var.project_name}-codedeploy-inline"
+  role = aws_iam_role.codedeploy.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      # EC2 + AutoScaling — required for deployments
+      {
+        Effect = "Allow",
+        Action = [
+          "ec2:Describe*",
+          "autoscaling:CompleteLifecycleAction",
+          "autoscaling:DeleteLifecycleHook",
+          "autoscaling:Describe*",
+          "autoscaling:PutLifecycleHook",
+          "autoscaling:RecordLifecycleActionHeartbeat",
+          "autoscaling:UpdateAutoScalingGroup"
+        ],
+        Resource = "*"
+      },
+      # CloudWatch Logs — so CodeDeploy can log deployment events
+      {
+        Effect = "Allow",
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Resource = "*"
+      },
+      # S3 — to fetch application bundles / AppSpec file
+      {
+        Effect = "Allow",
+        Action = [
+          "s3:Get*",
+          "s3:List*"
+        ],
+        Resource = "arn:aws:s3:::${var.artifact_bucket}/*"
+      }
+    ]
+  })
+}
+
+# Output for root module
+output "codedeploy_role_arn" {
+  value = aws_iam_role.codedeploy.arn
+}
+
 
 # Outputs
 output "codebuild_role_arn" {

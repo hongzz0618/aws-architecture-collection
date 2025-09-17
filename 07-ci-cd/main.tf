@@ -32,6 +32,23 @@ module "codebuild" {
   service_role_arn = module.iam.codebuild_role_arn
 }
 
+# EC2 Auto Scaling Group
+module "ec2asg" {
+  source        = "./modules/ec2asg"
+  project       = var.project_name
+  ami_id        = var.ami_id
+  instance_type = var.instance_type
+  subnet_ids    = var.subnet_ids
+}
+
+# CodeDeploy
+module "codedeploy" {
+  source          = "./modules/codedeploy"
+  project_name    = var.project_name
+  service_role_arn = module.iam.codedeploy_role_arn
+  asg_name        = module.ec2asg.asg_name
+}
+
 # CodePipeline
 module "codepipeline" {
   source             = "./modules/codepipeline"
