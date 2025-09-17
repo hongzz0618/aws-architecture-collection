@@ -19,3 +19,5 @@ phases:
 artifacts:
   files:
     - 07-ci-cd/src/**
+    - 07-ci-cd/appspec.yml
+    - 07-ci-cd/scripts/**
