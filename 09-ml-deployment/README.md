@@ -7,7 +7,7 @@ It uses **API Gateway**, **Lambda**, and **SageMaker** to create a scalable ML i
 
 ## Architecture
 
-![Architecture Diagram](https://diagram/ml-model-deployment.png)
+![Architecture Diagram](diagram/aws-ml-model-deployment.png)
 
 ---
 
