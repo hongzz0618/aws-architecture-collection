@@ -18,7 +18,7 @@ Each architecture will include:
 4. [**Event-Driven Processing**](./04-event-driven-processing) – S3/EventBridge, Lambda, SNS/SQS
 5. [**Real-Time Data Streaming**](./05-realtime-streaming) – Kinesis Data Streams, Lambda, DynamoDB
 6. [**Containerized Web App**](./06-containerized-web-app) – ECS Fargate, ALB, EFS
-7. [**CI/CD Pipeline**](./07-ci-cd) – CodePipeline, CodeBuild, CodeDeploy
+7. **CI/CD Pipeline** – CodePipeline, CodeBuild, CodeDeploy
 8. **Backup & Disaster Recovery** – S3, Glacier, AWS Backup
 9. **Machine Learning Model Deployment** – SageMaker, Lambda, API Gateway
 10. **Hybrid Cloud with VPN** – VPC, VPN Gateway, On-Premises Integration
