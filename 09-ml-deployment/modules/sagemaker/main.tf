@@ -1,0 +1,41 @@
+resource "aws_sagemaker_model" "ml_model" {
+  name               = "${var.project_name}-${var.environment}-${var.model_name}"
+  execution_role_arn = var.iam_role_arn
+
+  primary_container {
+    image          = "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-scikit-learn:1.0-1-cpu-py3"
+    model_data_url = "s3://${var.model_bucket_name}/model.tar.gz"
+  }
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_sagemaker_endpoint_configuration" "endpoint_config" {
+  name = "${var.project_name}-${var.environment}-endpoint-config"
+
+  production_variants {
+    variant_name           = "primary"
+    model_name             = aws_sagemaker_model.ml_model.name
+    initial_instance_count = 1
+    instance_type          = var.instance_type
+    initial_variant_weight = 1.0
+  }
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
+
+resource "aws_sagemaker_endpoint" "endpoint" {
+  name                 = "${var.project_name}-${var.environment}-endpoint"
+  endpoint_config_name = aws_sagemaker_endpoint_configuration.endpoint_config.name
+
+  tags = {
+    Environment = var.environment
+    Project     = var.project_name
+  }
+}
