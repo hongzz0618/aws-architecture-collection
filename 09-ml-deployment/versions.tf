@@ -11,12 +11,6 @@ terraform {
       version = "~> 2.4"
     }
   }
-
-  backend "s3" {
-    bucket = "ml-terraform-state-123456789012"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
-  }
 }
 
 provider "aws" {
