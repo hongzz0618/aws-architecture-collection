@@ -1,6 +1,6 @@
 output "model_upload_complete" {
   description = "Signal that model upload is complete"
-  value       = aws_s3_object.model_artifact.etag
+  value       = try(aws_s3_object.model_artifact[0].etag, "dummy_complete")
 }
 
 output "model_s3_url" {
