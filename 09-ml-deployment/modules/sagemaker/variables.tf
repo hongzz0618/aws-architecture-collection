@@ -27,3 +27,9 @@ variable "instance_type" {
   description = "SageMaker instance type"
   type        = string
 }
+
+variable "model_upload_complete" {
+  description = "Signal that model upload is complete"
+  type        = any
+  default     = null
+}

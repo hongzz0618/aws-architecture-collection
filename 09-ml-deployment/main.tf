@@ -2,9 +2,9 @@
 module "model_bucket" {
   source = "./modules/s3"
 
-  bucket_name    = "${var.project_name}-${var.environment}-models"
-  environment    = var.environment
-  project_name   = var.project_name
+  bucket_name      = "${var.project_name}-${var.environment}-models"
+  environment      = var.environment
+  project_name     = var.project_name
   enable_versioning = true
 }
 
@@ -17,6 +17,19 @@ module "iam" {
   s3_bucket_arn  = module.model_bucket.bucket_arn
 }
 
+# Model Training and Upload
+module "model_upload" {
+  source = "./modules/model-upload"
+
+  environment      = var.environment
+  project_name     = var.project_name
+  s3_bucket_name   = module.model_bucket.bucket_name
+  s3_bucket_id     = module.model_bucket.bucket_id
+  aws_region       = var.aws_region
+
+  depends_on = [module.model_bucket]
+}
+
 # SageMaker Resources
 module "sagemaker" {
   source = "./modules/sagemaker"
@@ -27,6 +40,9 @@ module "sagemaker" {
   iam_role_arn       = module.iam.sagemaker_role_arn
   model_bucket_name  = module.model_bucket.bucket_name
   instance_type      = var.sagemaker_instance_type
+  model_upload_complete = module.model_upload.model_upload_complete
+
+  depends_on = [module.model_upload, module.iam]
 }
 
 # Lambda Function
@@ -38,8 +54,10 @@ module "inference_lambda" {
   runtime              = var.lambda_runtime
   handler              = "index.handler"
   source_dir           = "./src/lambda/inference"
-  lambda_role_arn   = module.iam.lambda_role_arn
+  lambda_role_arn      = module.iam.lambda_role_arn
   sagemaker_endpoint   = module.sagemaker.endpoint_name
+
+  depends_on = [module.sagemaker, module.iam]
 }
 
 # API Gateway
@@ -50,4 +68,6 @@ module "api_gateway" {
   project_name         = var.project_name
   lambda_function_name = module.inference_lambda.function_name
   lambda_invoke_arn    = module.inference_lambda.invoke_arn
+
+  depends_on = [module.inference_lambda]
 }

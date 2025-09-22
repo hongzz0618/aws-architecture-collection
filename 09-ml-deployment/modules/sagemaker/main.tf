@@ -1,3 +1,4 @@
+# SageMaker Model
 resource "aws_sagemaker_model" "ml_model" {
   name               = "${var.project_name}-${var.environment}-${var.model_name}"
   execution_role_arn = var.iam_role_arn
@@ -5,14 +6,23 @@ resource "aws_sagemaker_model" "ml_model" {
   primary_container {
     image          = "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-scikit-learn:1.0-1-cpu-py3"
     model_data_url = "s3://${var.model_bucket_name}/model.tar.gz"
+    environment = {
+      SAGEMAKER_PROGRAM = "inference.py"
+      SAGEMAKER_SUBMIT_DIRECTORY = "/opt/ml/model/code"
+      MODEL_TYPE = "sklearn"
+    }
   }
 
   tags = {
     Environment = var.environment
     Project     = var.project_name
   }
+
+  # Explicit dependency on model upload
+  depends_on = [var.model_upload_complete]
 }
 
+# SageMaker Endpoint Configuration
 resource "aws_sagemaker_endpoint_configuration" "endpoint_config" {
   name = "${var.project_name}-${var.environment}-endpoint-config"
 
@@ -30,6 +40,7 @@ resource "aws_sagemaker_endpoint_configuration" "endpoint_config" {
   }
 }
 
+# SageMaker Endpoint
 resource "aws_sagemaker_endpoint" "endpoint" {
   name                 = "${var.project_name}-${var.environment}-endpoint"
   endpoint_config_name = aws_sagemaker_endpoint_configuration.endpoint_config.name
@@ -38,4 +49,7 @@ resource "aws_sagemaker_endpoint" "endpoint" {
     Environment = var.environment
     Project     = var.project_name
   }
+
+  # Wait for endpoint configuration to be ready
+  depends_on = [aws_sagemaker_endpoint_configuration.endpoint_config]
 }
