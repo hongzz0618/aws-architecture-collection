@@ -38,7 +38,7 @@ module "inference_lambda" {
   runtime              = var.lambda_runtime
   handler              = "index.handler"
   source_dir           = "./src/lambda/inference"
-  sagemaker_role_arn   = module.iam.sagemaker_role_arn
+  lambda_role_arn   = module.iam.lambda_role_arn
   sagemaker_endpoint   = module.sagemaker.endpoint_name
 }
 
