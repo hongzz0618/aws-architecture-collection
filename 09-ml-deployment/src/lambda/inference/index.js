@@ -52,18 +52,24 @@ exports.handler = async (event) => {
       };
     }
 
-    // Prepare payload for SageMaker
-    const payload = JSON.stringify(data);
+    // XGBoost expects CSV format or specific JSON format
+    // Convert array data to CSV-like format
+    const payload = data.map((row) => row.join(",")).join("\n");
 
     const command = new InvokeEndpointCommand({
       EndpointName: endpointName,
-      ContentType: "application/json",
+      ContentType: "text/csv", // XGBoost expects CSV format
       Body: payload,
     });
 
     const response = await sagemakerClient.send(command);
 
-    const predictions = JSON.parse(Buffer.from(response.Body).toString("utf8"));
+    // XGBoost returns predictions as text
+    const predictions = Buffer.from(response.Body)
+      .toString("utf8")
+      .trim()
+      .split("\n")
+      .map(parseFloat);
 
     return {
       statusCode: 200,
@@ -71,7 +77,8 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         predictions,
         timestamp: new Date().toISOString(),
-        model: endpointName,
+        model: "xgboost",
+        endpoint: endpointName,
       }),
     };
   } catch (error) {
@@ -83,7 +90,6 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         error: "Internal server error",
         message: error.message,
-        ...(process.env.ENVIRONMENT === "dev" && { stack: error.stack }),
       }),
     };
   }

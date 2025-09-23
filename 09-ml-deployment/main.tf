@@ -17,7 +17,7 @@ module "iam" {
   s3_bucket_arn  = module.model_bucket.bucket_arn
 }
 
-# Model Training and Upload
+# Simple Model Upload
 module "model_upload" {
   source = "./modules/model-upload"
 
@@ -25,7 +25,6 @@ module "model_upload" {
   project_name     = var.project_name
   s3_bucket_name   = module.model_bucket.bucket_name
   s3_bucket_id     = module.model_bucket.bucket_id
-  aws_region       = var.aws_region
 
   depends_on = [module.model_bucket]
 }
@@ -41,8 +40,6 @@ module "sagemaker" {
   model_bucket_name  = module.model_bucket.bucket_name
   instance_type      = var.sagemaker_instance_type
   model_upload_complete = module.model_upload.model_upload_complete
-
-  depends_on = [module.model_upload, module.iam]
 }
 
 # Lambda Function
@@ -57,7 +54,7 @@ module "inference_lambda" {
   lambda_role_arn      = module.iam.lambda_role_arn
   sagemaker_endpoint   = module.sagemaker.endpoint_name
 
-  depends_on = [module.sagemaker, module.iam]
+  depends_on = [module.sagemaker]
 }
 
 # API Gateway
