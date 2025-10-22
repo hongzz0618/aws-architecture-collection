@@ -1,7 +1,7 @@
 # 07 — CI/CD Pipeline on AWS
 
 This example shows how to build a **CI/CD pipeline** on AWS.  
-It uses **AWS CodePipeline**, **AWS CodeBuild**, **AWS CodeDeploy**, and **S3** (artifact store) to build, test, and deploy a simple Node.js application to an EC2 Auto Scaling Group (or to an existing fleet) using Infrastructure-as-Code.
+It uses **AWS CodePipeline**, **AWS CodeBuild**, and **AWS CodeDeploy** to build, test, and deploy a simple Node.js application using Infrastructure-as-Code.
 
 ---
 
@@ -14,8 +14,7 @@ It uses **AWS CodePipeline**, **AWS CodeBuild**, **AWS CodeDeploy**, and **S3** 
 - **CodeCommit / GitHub** → Source repository (this example assumes GitHub but CodeCommit is interchangeable).
 - **CodePipeline** → Orchestrates the pipeline stages (Source → Build → Deploy).
 - **CodeBuild** → Builds & tests the application; produces artifacts.
-- **S3** → Stores build artifacts.
-- **CodeDeploy** → Deploys artifacts to compute targets (EC2/AutoScalingGroup / ECS / Lambda).
+- **CodeDeploy** → Deploys artifacts to compute targets (Lambda).
 - **IAM** → Roles and policies for each service to operate with least privilege.
 
 ---
@@ -32,7 +31,7 @@ It uses **AWS CodePipeline**, **AWS CodeBuild**, **AWS CodeDeploy**, and **S3** 
 ## What’s inside
 
 - Architecture diagram
-- Terraform code to provision: S3 (artifact bucket), IAM roles, CodeBuild project, CodeDeploy application + deployment group, CodePipeline connected to GitHub, and (optional) an EC2 Auto Scaling group target (blue/green or in-place).
+- Terraform code to provision: IAM roles, CodeBuild project, CodeDeploy application + deployment group, CodePipeline connected to GitHub.
 - `buildspec.yml` for build steps and artifact packaging.
 - `appspec.yml` and hooks for CodeDeploy.
 - Example Node.js app with simple endpoint.
