@@ -1,4 +1,4 @@
-# 02 — Machine Learning Model Deployment
+# 09 — Machine Learning Model Deployment
 
 This example shows how to deploy a machine learning model using AWS serverless services.  
 It uses **API Gateway**, **Lambda**, and **SageMaker** to create a scalable ML inference endpoint without managing servers.
