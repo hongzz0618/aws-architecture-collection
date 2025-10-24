@@ -1,0 +1,9 @@
+theme: jekyll-theme-cayman
+title: ""
+description: ""
+show_downloads: false
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
