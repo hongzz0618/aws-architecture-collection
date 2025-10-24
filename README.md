@@ -26,6 +26,24 @@ Each architecture includes:
 
 ---
 
+## 🔮 Coming Soon
+✨ **GenAI-Powered Architecture**  
+A new architecture that integrates **Generative AI** with AWS services for intelligent applications.  
+**Use cases:**  
+- AI-driven chatbots  
+- Automated content generation  
+- Intelligent workflows  
+
+---
+
+### ✅ Future Tasks
+
+- 🔹 **Separate this repository into individual repositories** for each architecture  
+- 🔹 **Convert this repository into a landing page** linking all architectures  
+- 🔹 **Add the new GenAI architecture** with diagrams, Terraform code, and examples  
+
+---
+
 ## 🧠 Why This Project?
 
 This collection helps you:
