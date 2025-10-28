@@ -20,7 +20,7 @@ Each architecture includes:
 | [🔁 **Event-Driven Processing**](https://github.com/hongzz0618/aws-event-driven-processing) | React to events using EventBridge and Lambda | File uploads, automation workflows |
 | 📡 **Real-Time Data Streaming** | Process live data with Kinesis | IoT, live dashboards |
 | 🐳 **Containerized Web App** | Deploy apps in containers using ECS Fargate | Scalable web platforms |
-| 🚀 **CI/CD Pipeline** | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
+| [🚀 **CI/CD Pipeline**](https://github.com/hongzz0618/aws-ci-cd) | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
 
 > 🔗 Each link will take you to a dedicated repository with code, diagrams, and instructions.
 
