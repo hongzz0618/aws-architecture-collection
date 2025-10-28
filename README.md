@@ -27,7 +27,7 @@ Each architecture includes:
 ---
 
 ## 🔮 Coming Soon
-✨ **GenAI-Powered Architecture**  
+[✨ **GenAI-Powered Architecture**](https://github.com/hongzz0618/aws-genai-starter)
 A new architecture that integrates **Generative AI** with AWS services for intelligent applications.  
 **Use cases:**  
 - AI-driven chatbots  
