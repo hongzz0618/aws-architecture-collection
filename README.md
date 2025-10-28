@@ -15,7 +15,7 @@ Each architecture includes:
 | 🌟 Architecture | 📝 Description | 🌍 Real-World Use Case |
 |----------------|----------------|------------------------|
 | 🌐 **Static Website Hosting** | Host a secure, scalable website using S3 and CloudFront | Marketing sites, documentation portals |
-| ⚙️ **Serverless API Backend** | Build a backend with Lambda and API Gateway | Mobile apps, microservices |
+| [⚙️ **Serverless API Backend**](https://github.com/hongzz0618/aws-serverless-api-backend) | Build a backend with Lambda and API Gateway | Mobile apps, microservices |
 | 🗃️ **Data Lake** | Store and analyze large datasets | Business intelligence, analytics |
 | [🔁 **Event-Driven Processing**](https://github.com/hongzz0618/aws-event-driven-processing) | React to events using EventBridge and Lambda | File uploads, automation workflows |
 | 📡 **Real-Time Data Streaming** | Process live data with Kinesis | IoT, live dashboards |
