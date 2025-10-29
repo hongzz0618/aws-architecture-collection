@@ -14,7 +14,7 @@ Explore practical AWS architectures. Each example includes Terraform code, diagr
 | [⚙️ **Serverless API Backend**](https://github.com/hongzz0618/aws-serverless-api-backend) | Build a backend with Lambda and API Gateway | Mobile apps, microservices |
 | [🗃️ **Data Lake**](https://github.com/hongzz0618/aws-data-lake) | Store and analyze large datasets | Business intelligence, analytics |
 | [🔁 **Event-Driven Processing**](https://github.com/hongzz0618/aws-event-driven-processing) | React to events using EventBridge and Lambda | File uploads, automation workflows |
-| 📡 **Real-Time Data Streaming** | Process live data with Kinesis | IoT, live dashboards |
+| [📡 **Real-Time Data Streaming**](https://github.com/hongzz0618/aws-realtime-streaming) | Process live data with Kinesis | IoT, live dashboards |
 | 🐳 **Containerized Web App** | Deploy apps in containers using ECS Fargate | Scalable web platforms |
 | [🚀 **CI/CD Pipeline**](https://github.com/hongzz0618/aws-ci-cd) | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
 
