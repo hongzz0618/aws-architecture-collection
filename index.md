@@ -25,11 +25,6 @@ Explore practical AWS architectures. Each example includes Terraform code, diagr
 [**GenAI-Powered Architecture**](https://github.com/hongzz0618/aws-genai-starter)
 A new architecture that integrates Generative AI with AWS services for intelligent applications.
 
-**Future Tasks**
-- Separate this repository into individual repositories
-- Convert this repository into a landing page
-- Add the new GenAI architecture with diagrams and Terraform code
-
 ---
 
 ## 🧠 Why This Project?

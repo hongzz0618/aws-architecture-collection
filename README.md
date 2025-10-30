@@ -36,14 +36,6 @@ A new architecture that integrates **Generative AI** with AWS services for intel
 
 ---
 
-### ✅ Future Tasks
-
-- 🔹 **Separate this repository into individual repositories** for each architecture  
-- 🔹 **Convert this repository into a landing page** linking all architectures  
-- 🔹 **Add the new GenAI architecture** with diagrams, Terraform code, and examples  
-
----
-
 ## 🧠 Why This Project?
 
 This collection helps you:
