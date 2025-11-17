@@ -1,6 +1,6 @@
 # 🌩️ AWS Architecture Collection
 
-Welcome! This repository is a curated set of **7 popular AWS architectures**, each designed to solve a real-world problem using cloud-native services.
+Welcome! This repository is a curated set of **7+ popular AWS architectures**, each designed to solve a real-world problem using cloud-native services.
 
 Each architecture includes:
 
@@ -21,18 +21,9 @@ Each architecture includes:
 | [📡 **Real-Time Data Streaming**](https://github.com/hongzz0618/aws-realtime-streaming) | Process live data with Kinesis | IoT, live dashboards |
 | [🐳 **Containerized Web App**](https://github.com/hongzz0618/aws-containerized-web-app) | Deploy apps in containers using ECS Fargate | Scalable web platforms |
 | [🚀 **CI/CD Pipeline**](https://github.com/hongzz0618/aws-ci-cd) | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
+| [✨ **GenAI-Powered**](https://github.com/hongzz0618/aws-genai-starter) | Integrate Generative AI with AWS services | AI-driven chatbots, content generation, intelligent workflows |
 
 > 🔗 Each link will take you to a dedicated repository with code, diagrams, and instructions.
-
----
-
-## 🔮 Coming Soon
-[✨ **GenAI-Powered Architecture**](https://github.com/hongzz0618/aws-genai-starter)
-A new architecture that integrates **Generative AI** with AWS services for intelligent applications.  
-**Use cases:**  
-- AI-driven chatbots  
-- Automated content generation  
-- Intelligent workflows  
 
 ---
 
