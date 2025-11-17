@@ -14,6 +14,9 @@ Each architecture includes:
 ---
 
 ## 🧭 Architectures Overview
+
+Explore practical AWS architectures. Each example includes Terraform code, diagrams, and deployment steps.
+
 | 🌟 Architecture | 📝 Description | 🌍 Real-World Use Case |
 |----------------|----------------|------------------------|
 | [🌐 **Static Website Hosting**](https://github.com/hongzz0618/aws-static-website-hosting) | Host a secure, scalable website using S3 and CloudFront | Marketing sites, documentation portals |
