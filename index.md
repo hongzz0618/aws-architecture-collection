@@ -1,13 +1,19 @@
 # 🌩️ AWS Architecture Collection
 
-Welcome to the **AWS Architecture Collection** – a curated set of real-world cloud solutions built with **Terraform** and AWS services.
+Welcome! This repository is a curated set of **7+ popular AWS architectures**, each designed to solve a real-world problem using cloud-native services.
+
+> 🛠️ **Note:** These architectures are not final. I'm continuously improving and updating them as I learn and build more—so expect changes and enhancements over time.
+
+Each architecture includes:
+
+- 📐 **Architecture diagram**
+- 🧱 **Terraform code** to deploy the infrastructure
+- 🧪 **Example app or assets**
+- 📘 **Step-by-step deployment guide**
 
 ---
 
 ## 🧭 Architectures Overview
-
-Explore practical AWS architectures. Each example includes Terraform code, diagrams, and deployment steps.
-
 | 🌟 Architecture | 📝 Description | 🌍 Real-World Use Case |
 |----------------|----------------|------------------------|
 | [🌐 **Static Website Hosting**](https://github.com/hongzz0618/aws-static-website-hosting) | Host a secure, scalable website using S3 and CloudFront | Marketing sites, documentation portals |
@@ -17,13 +23,9 @@ Explore practical AWS architectures. Each example includes Terraform code, diagr
 | [📡 **Real-Time Data Streaming**](https://github.com/hongzz0618/aws-realtime-streaming) | Process live data with Kinesis | IoT, live dashboards |
 | [🐳 **Containerized Web App**](https://github.com/hongzz0618/aws-containerized-web-app) | Deploy apps in containers using ECS Fargate | Scalable web platforms |
 | [🚀 **CI/CD Pipeline**](https://github.com/hongzz0618/aws-ci-cd) | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
+| [✨ **GenAI-Powered**](https://github.com/hongzz0618/aws-genai-starter) | Integrate Generative AI with AWS services | AI-driven chatbots, content generation, intelligent workflows |
 
----
-
-## 🔮 Coming Soon
-
-[**GenAI-Powered Architecture**](https://github.com/hongzz0618/aws-genai-starter)
-A new architecture that integrates Generative AI with AWS services for intelligent applications.
+> 🔗 Each link will take you to a dedicated repository with code, diagrams, and instructions.
 
 ---
 
