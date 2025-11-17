@@ -28,6 +28,8 @@ Explore practical AWS architectures. Each example includes Terraform code, diagr
 | [🚀 **CI/CD Pipeline**](https://github.com/hongzz0618/aws-ci-cd) | Automate deployments with CodePipeline | DevOps workflows, continuous delivery |
 | [✨ **GenAI-Powered**](https://github.com/hongzz0618/aws-genai-starter) | Integrate Generative AI with AWS services | AI-driven chatbots, content generation, intelligent workflows |
 
+> 🔗 Each link will take you to a dedicated repository with code, diagrams, and instructions.
+
 ---
 
 ## 🧠 Why This Project?
